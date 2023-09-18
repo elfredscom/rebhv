@@ -5,9 +5,8 @@ html {
 }
 
 body {
-  height: 100%;
-  width: 100%;
   margin: 0;
+  padding: 1em;
   font-size: 2em;
   font-family: Inter, Arial, Helvetica, sans-serif;
 }
