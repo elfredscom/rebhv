@@ -12,22 +12,35 @@
     body {
       background: #69A3F4;
       background: radial-gradient(at left top, #69A3F4, #FCFCC0);
-      color: transparent;
+      /*color: transparent;*/
+      opacity: 0;
       text-decoration-color: none;
     }
 
     a:link {
-      color: transparent;
+      color: inherit;
       text-decoration: none;
     }
   </style>
 </head>
 
-<body>
+<body onload="discover()">
+  <script>
+    function discover() {
+      var op = 0.0001;  // initial opacity
+      var timer = setInterval(function() {
+        if (op >= 1) {
+          clearInterval(timer);
+        }
+        document.body.style.opacity = op;
+        op += 0.0001;  // increment opacity by 0.1 each time
+      }, 50);  // increment every 0.05 seconds
+    }
+    
+  </script>
   <div style="text-align: justify; text-justify: inter-word;">
     In the depths of existence lie spellbinding enigmas. In pursuit of knowledge, our indomitable spirit. Email <a
-      href="mailto:rebhv@elfreds.com">rebhv at elfreds dot com</a>. <br> Our projects: <a href="/EXYZ.pdf">EXYZ -
-      pay as you go
+      href="mailto:rebhv@elfreds.com">rebhv at elfreds dot com</a>. <br> Our projects: <a href="/EXYZ.pdf">pay as you go
       for digital consumption</a>, et al.
   </div>
 </body>
