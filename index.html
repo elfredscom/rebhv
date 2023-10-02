@@ -4,15 +4,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="icon" type="image/png" href="/rebhv.png">
   <link rel="apple-touch-icon" href="/rebhv.png">
   <title>rebhv</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <style>
     body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       background: #69A3F4;
       background: radial-gradient(at left top, #69A3F4, #FCFCC0);
-      /*color: transparent;*/
       opacity: 0;
       text-decoration-color: none;
     }
@@ -21,24 +25,31 @@
       color: inherit;
       text-decoration: none;
     }
+
+    .gradient-text {
+      background: linear-gradient(to bottom right, #f9a424, #1137aa);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
   </style>
 </head>
 
 <body onload="discover()">
   <script>
     function discover() {
-      var op = 0.0001;  // initial opacity
+      var op = 0.000001;  // initial opacity
       var timer = setInterval(function() {
         if (op >= 1) {
           clearInterval(timer);
         }
         document.body.style.opacity = op;
-        op += 0.0001;  // increment opacity by 0.1 each time
+        op = op*1.08;  // increment opacity by 0.1 each time
       }, 50);  // increment every 0.05 seconds
     }
     
   </script>
-  <div style="text-align: justify; text-justify: inter-word;">
+  <div style="text-align: justify; text-justify: inter-word;" class="gradient-text">
     In the depths of existence lie spellbinding enigmas. In pursuit of knowledge, our indomitable spirit. Email <a
       href="mailto:rebhv@elfreds.com">rebhv at elfreds dot com</a>.<br> Our chapters: machine learning, IoT, robotics, cybersecurity, algo trading, industrial technologies, data analytics, decentralised systems.<br> Our projects: <a href="/EXYZ.pdf">pay as you go
       for digital consumption</a>, et al.
