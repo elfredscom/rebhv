@@ -15,8 +15,7 @@
   <style>
     body {
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      opacity: 0;
-      text-decoration-color: none;
+      font-size: 1.5em;
     }
     a:link {
       color: inherit;
@@ -25,25 +24,15 @@
   </style>
 </head>
 
-<body onload="discover()">
-  <script>
-    function discover() {
-      var op = 0.000001;  // initial opacity
-      var timer = setInterval(function() {
-        if (op >= 1) {
-          clearInterval(timer);
-        }
-        document.body.style.opacity = op;
-        op = op*1.015;  // increment opacity by 0.1 each time
-      }, 5);  // increment every 0.05 seconds
-    }
-    
-  </script>
+<body>
   <div style="font-size: 2em;">ऋभव</div> <br>
-  <div style="text-align: justify; text-justify: inter-word;">
-    In the depths of existence lie spellbinding enigmas. In pursuit of knowledge, our indomitable spirit. Email <a
-      href="mailto:rebhv@elfreds.com">rebhv at elfreds dot com</a>.<br><br> Chapters: machine learning, IoT, robotics, cybersecurity, algo trading, industrial technologies, data analytics, decentralised systems, language, and polity.<br><br> Projects: <a href="/EXYZ.pdf">pay as you go
-      for digital consumption</a>, et al.
+  <div style="text-align: justify;">
+    In the depths of existence lie spellbinding enigmas. In pursuit of knowledge, our indomitable spirit. 
+    Email <a href="mailto:rebhv@elfreds.com">rebhv at elfreds dot com</a>.
+      <br><br> 
+      Chapters: machine learning, IoT, robotics, cybersecurity, algo trading, industrial technologies, data analytics, decentralised systems, language, and polity.
+      <br><br> 
+      Projects: <a href="/EXYZ.pdf">pay as you go for digital consumption</a>, et al.
   </div>
 </body>
 
