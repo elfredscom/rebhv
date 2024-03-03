@@ -4,43 +4,128 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="icon" type="image/png" href="/rebhv.png">
   <link rel="apple-touch-icon" href="/rebhv.png">
   <title>rebhv</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <style>
+    html {}
+
     body {
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       font-size: 1.5em;
-      padding: 1.5em;
       border: 0;
       display: flex;
       flex-direction: column;
     }
 
-    h1 {
-      font-weight: 200;
-      font-size: 2em;
+    a {
+      color: inherit;
+      /* text-decoration: none; */
     }
 
-    a:link {
-      color: inherit;
-      /* text-decoration: none;*/
+    .boxed {
+      margin: 2em;
+      padding: 2em;
+      border-radius: 0.2em;
+      display: block;
+      vertical-align: top;
     }
-  </style>
-</head>
+
+    .boxed2 {
+      margin: 1.5em;
+      border-radius: 0.2em;
+      display: block;
+      vertical-align: top;
+    }
+
+    .large {
+      font-size: 3em;
+      font-weight: bold;
+    }
+
+    .team {
+      margin: 0em 1.5em;
+      padding: 0em;
+      border-radius: 0.5em;
+      display: block;
+      vertical-align: top;
+      /* color: #FFF; */
+    }
+
+    .work {
+      margin: 0.4em;
+      padding: 0.4em;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .other {
+      margin: 0.4em;
+      padding: 0.4em;
+      display: none;
+      vertical-align: top;
+    }
+
+    .planned {
+      margin: 0.4em;
+      padding: 0.4em;
+      display: none;
+      vertical-align: top;
+    }
+
+    underline {
+      text-decoration: underline !important;
+    }
+
+    /* Portrait */
+    .teams {
+      border: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Big Landscape */
+    @media screen and (orientation:landscape) and (min-width: 48em) {
+      .teams {
+        border: 0;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #212121;
+        color: white;
+      }
+    }
+  </style></head>
 
 <body>
-  <h1>
-    ऋभव
-  </h1>
-  <div>
+  <div class="boxed2" style="margin-bottom: 0em;">
+
+  </div>
+
+  <div class="boxed2">
+    <p align="justify" style="margin:0;">
+    <div><b>
+        rebhv
+      </b>
+    </div>
+    <br><br>
     In the depths of existence lie spellbinding enigmas. In pursuit of knowledge, our indomitable spirit.
     <br><br>
-    Chapters: ideals, probabilities, markets, systems, technology, data, strategy, propaganda, art, language, and polity.  
+    Chapters: markets, systems, technology, data, probabilities, strategy, ideals, propaganda, art, language, and polity.  
     <br><br>
     Projects: <a href="/EXYZ.pdf">payg subscriptions</a>, et al.
+    </p>
   </div>
+
 </body>
 
 </html>
