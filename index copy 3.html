@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rebhv</title>
+    <title>Rebhv - Where Knowledge Begins</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <style>
@@ -11,8 +11,9 @@
             font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             font-size: 1.5em;
             line-height: 1.5;
-            background: #f0f0f0;
+            background: linear-gradient(135deg, #e6e9f0 0%, #bbf0dc 100%);
             color: #111;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -61,28 +62,36 @@
             background-repeat: repeat;
             background-size: 200px 200px;
         }
-        .shape {
+        .orbit {
             position: absolute;
-            opacity: 0.4;
-            filter: blur(10px);
+            border: 1px solid rgba(44, 62, 80, 0.1);
             border-radius: 50%;
         }
-        .shape1 { background-color: rgba(255, 107, 107, 0.6); }
-        .shape2 { background-color: rgba(78, 205, 196, 0.6); }
-        .shape3 { background-color: rgba(254, 202, 87, 0.6); }
-        .shape4 { background-color: rgba(149, 82, 234, 0.6); }
-        .shape5 { background-color: rgba(52, 231, 228, 0.6); }
-        .shape6 { background-color: rgba(255, 159, 26, 0.6); }
-        .shape7 { background-color: rgba(29, 209, 161, 0.6); }
-        .shape8 { background-color: rgba(243, 104, 224, 0.6); }
-        .shape9 { background-color: rgba(46, 134, 222, 0.6); }
-        .signal {
+        .orbit1 { width: 200%; height: 200%; top: -50%; left: -50%; }
+        .orbit2 { width: 180%; height: 180%; top: -40%; left: -40%; }
+        .orbit3 { width: 160%; height: 160%; top: -30%; left: -30%; }
+        .shape {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            opacity: 0.6;
+            filter: blur(1px);
+        }
+        .shape1 {
+            width: 6px;
+            height: 6px;
+            background-color: rgba(255, 107, 107, 0.4);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+        .shape2 {
+            width: 7px;
+            height: 7px;
+            background-color: rgba(78, 205, 196, 0.4);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        .shape3 {
+            width: 5px;
+            height: 5px;
+            background-color: rgba(254, 202, 87, 0.4);
             border-radius: 50%;
-            opacity: 0;
-            filter: blur(10px);
         }
         h1, p {
             margin-bottom: 1.5rem;
@@ -114,26 +123,20 @@
     </svg>
     <div class="space-background">
         <div class="stars"></div>
+        <div class="orbit orbit1"></div>
+        <div class="orbit orbit2"></div>
+        <div class="orbit orbit3"></div>
         <div class="shape shape1"></div>
         <div class="shape shape2"></div>
         <div class="shape shape3"></div>
-        <div class="shape shape4"></div>
-        <div class="shape shape5"></div>
-        <div class="shape shape6"></div>
-        <div class="shape shape7"></div>
-        <div class="shape shape8"></div>
-        <div class="shape shape9"></div>
-        <div class="signal"></div>
-        <div class="signal"></div>
-        <div class="signal"></div>
-        <div class="signal"></div>
-        <div class="signal"></div>
-        <div class="signal"></div>
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
     </div>
     <div class="container">
         <p><b>Rebhv</b></p>
         <p>In the depths of existence lie spellbinding enigmas. In pursuit of knowledge, our indomitable spirit.</p>
-        <p><span class="highlight">Disciplines<!--Fields-->:</span> markets, technology, systems, data, enterprise, society, policy, propaganda, art, and language.</p>
+        <p><span class="highlight">Chapters:</span> markets, technology, systems, data, enterprise, society, policy, propaganda, art, and language.</p>
         <p><span class="highlight">Functions:</span> strategy, operations, and marketing.</p>
         <p><span class="highlight">People:</span><br>
         Ajay (<a href="mailto:chahal@elfreds.com">email</a>, <a href="imessage://chahal@elfreds.com">imessage</a>, <a href="https://www.linkedin.com/in/ajch25/">linkedin</a>, <a href="https://x.com/ghanshyaama">x.com</a>),<br>
@@ -143,20 +146,22 @@
     </div>
     <script>
         gsap.to(".stars", {duration: 10, opacity: 0.3, repeat: -1, yoyo: true, ease: "power1.inOut"});
-
+        
+        gsap.to(".orbit1", {duration: 120, rotation: 360, repeat: -1, ease: "none"});
+        gsap.to(".orbit2", {duration: 180, rotation: -360, repeat: -1, ease: "none"});
+        gsap.to(".orbit3", {duration: 150, rotation: 360, repeat: -1, ease: "none"});
+        
         const shapes = gsap.utils.toArray(".shape");
         shapes.forEach((shape, i) => {
             gsap.set(shape, {
                 xPercent: -50,
                 yPercent: -50,
-                width: gsap.utils.random(80, 150),
-                height: gsap.utils.random(80, 150),
                 x: gsap.utils.random(0, window.innerWidth),
                 y: gsap.utils.random(0, window.innerHeight)
             });
-
+            
             gsap.to(shape, {
-                duration: gsap.utils.random(150, 210),
+                duration: gsap.utils.random(60, 120),
                 rotation: gsap.utils.random(0, 360),
                 x: gsap.utils.random(0, window.innerWidth),
                 y: gsap.utils.random(0, window.innerHeight),
@@ -165,48 +170,6 @@
                 ease: "none"
             });
         });
-
-        const signals = gsap.utils.toArray(".signal");
-        function animateSignal(signal) {
-            const startShape = shapes[gsap.utils.random(0, shapes.length - 1, 1)];
-            const endShape = shapes[gsap.utils.random(0, shapes.length - 1, 1)];
-            const startColor = window.getComputedStyle(startShape).backgroundColor;
-            const endColor = window.getComputedStyle(endShape).backgroundColor;
-
-            gsap.set(signal, {
-                x: startShape._gsap.x,
-                y: startShape._gsap.y,
-                backgroundColor: startColor,
-                opacity: 0,
-                scale: 0.5
-            });
-
-            const timeline = gsap.timeline({onComplete: () => animateSignal(signal)});
-
-            timeline.to(signal, {
-                duration: 0.8,
-                opacity: 0.4,
-                scale: 1,
-                ease: "power1.out"
-            });
-
-            timeline.to(signal, {
-                duration: gsap.utils.random(3, 5),
-                x: endShape._gsap.x,
-                y: endShape._gsap.y,
-                backgroundColor: endColor,
-                ease: "none"
-            });
-
-            timeline.to(signal, {
-                duration: 0.8,
-                opacity: 0,
-                scale: 0.5,
-                ease: "power1.in"
-            });
-        }
-
-        signals.forEach(animateSignal);
     </script>
 </body>
 </html>
