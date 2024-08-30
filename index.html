@@ -1,138 +1,175 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-  <link rel="icon" type="image/png" href="/rebhv.png">
-  <link rel="apple-touch-icon" href="/rebhv.png">
-  <title>rebhv</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <style>
-    html {}
-
-    body {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-      font-size: 1.5em;
-      line-height: 1.5;
-      border: 0;
-      display: flex;
-      background-color: rgb(222, 251, 208);
-      flex-direction: column;
-    }
-
-    a {
-      color: inherit;
-      /* text-decoration: none; */
-    }
-
-    .boxed {
-      margin: 2em;
-      padding: 2em;
-      border-radius: 0.2em;
-      display: block;
-      vertical-align: top;
-    }
-
-    .boxed2 {
-      margin: 1.5em;
-      border-radius: 0.2em;
-      display: block;
-      vertical-align: top;
-    }
-
-    .large {
-      font-size: 3em;
-      font-weight: bold;
-    }
-
-    .team {
-      margin: 0em 1.5em;
-      padding: 0em;
-      border-radius: 0.5em;
-      display: block;
-      vertical-align: top;
-      /* color: #FFF; */
-    }
-
-    .work {
-      margin: 0.4em;
-      padding: 0.4em;
-      display: inline-block;
-      vertical-align: top;
-    }
-
-    .other {
-      margin: 0.4em;
-      padding: 0.4em;
-      display: none;
-      vertical-align: top;
-    }
-
-    .planned {
-      margin: 0.4em;
-      padding: 0.4em;
-      display: none;
-      vertical-align: top;
-    }
-
-    underline {
-      text-decoration: underline !important;
-    }
-
-    /* Portrait */
-    .teams {
-      border: 0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Big Landscape */
-    @media screen and (orientation:landscape) and (min-width: 48em) {
-      .teams {
-        border: 0;
-        display: flex;
-        flex-direction: row;
-      }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #212121;
-        color: white;
-      }
-    }
-  </style></head>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rebhv - Where Knowledge Begins</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <style>
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-size: 1.5em;
+            line-height: 1.5;
+            background: linear-gradient(135deg, #e6e9f0 0%, #bbf0dc 100%);
+            color: #111;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+        .container {
+            padding: 2em;
+            position: relative;
+            z-index: 2;
+        }
+        .space-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .space-background::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+            filter: url(#diffusion);
+        }
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, rgba(44,62,80,0.3), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, rgba(44,62,80,0.2), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 160px, rgba(44,62,80,0.3), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, rgba(44,62,80,0.2), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 130px 80px, rgba(44,62,80,0.3), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 160px 120px, rgba(44,62,80,0.2), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+        }
+        .orbit {
+            position: absolute;
+            border: 1px solid rgba(44, 62, 80, 0.1);
+            border-radius: 50%;
+        }
+        .orbit1 { width: 200%; height: 200%; top: -50%; left: -50%; }
+        .orbit2 { width: 180%; height: 180%; top: -40%; left: -40%; }
+        .orbit3 { width: 160%; height: 160%; top: -30%; left: -30%; }
+        .shape {
+            position: absolute;
+            opacity: 0.6;
+            filter: blur(1px);
+        }
+        .shape1 {
+            width: 6px;
+            height: 6px;
+            background-color: rgba(255, 107, 107, 0.4);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+        .shape2 {
+            width: 7px;
+            height: 7px;
+            background-color: rgba(78, 205, 196, 0.4);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        .shape3 {
+            width: 5px;
+            height: 5px;
+            background-color: rgba(254, 202, 87, 0.4);
+            border-radius: 50%;
+        }
+        h1, p {
+            margin-bottom: 1.5rem;
+        }
+        h1 {
+            letter-spacing: 1px;
+        }
+        .highlight {
+            font-weight: 600;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        a:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
 <body>
-  <div class="boxed2">
-    <p align="justify" style="margin-top:2em;">
-    <div><b>
-        Rebhv
-      </b>
+    <svg width="0" height="0">
+        <filter id="diffusion">
+            <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" result="displacement" />
+            <feGaussianBlur in="displacement" stdDeviation="5" result="blur" />
+            <feBlend in="SourceGraphic" in2="blur" mode="overlay" result="blend" />
+        </filter>
+    </svg>
+    <div class="space-background">
+        <div class="stars"></div>
+        <div class="orbit orbit1"></div>
+        <div class="orbit orbit2"></div>
+        <div class="orbit orbit3"></div>
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
     </div>
-    <br>
-    <div>
-    In the depths of existence lie spellbinding enigmas. In pursuit of knowledge, our indomitable spirit.
-    </div><br><div>
-    Chapters: markets, technology, systems, data, enterprise, society, policy, propaganda, art, and language. 
-  </div><br><div>
-    Functions: strategy, operations, and marketing. 
-  </div><br><div>
-    People: <br>
-    Ajay (<a href="mailto:chahal@elfreds.com">email</a>, <a href="imessage://chahal@elfreds.com">imessage</a>, <a href="https://www.linkedin.com/in/ajch25/">linkedin</a>, and <a href="https://x.com/ghanshyaama">x.com</a>),<br>
-    Akash (<a href="mailto:akash@plekko.com">email</a>, and <a href="https://www.linkedin.com/in/akash-mungul-3b27a2136/">linkedin</a>), <br>
-    and you? (join us!)
-  </div><br><div>
-    Projects: building a platform to monetize digital content, running a hyperlocal grocery delivery service, developing ai-driven stock analysis tools, analyzing in-depth the indian cybersecurity market, forecasting global real estate trends in key markets, implementing customer engagement systems for a smart energy company, optimizing marketing technology for an elderly care startup, business development for a media agency, and more.
-  </div>  
-  </p>
-  </div>
-
+    <div class="container">
+        <p><b>Rebhv</b></p>
+        <p>In the depths of existence lie spellbinding enigmas. In pursuit of knowledge, our indomitable spirit.</p>
+        <p><span class="highlight">Chapters:</span> markets, technology, systems, data, enterprise, society, policy, propaganda, art, and language.</p>
+        <p><span class="highlight">Functions:</span> strategy, operations, and marketing.</p>
+        <p><span class="highlight">People:</span><br>
+        Ajay (<a href="mailto:chahal@elfreds.com">email</a>, <a href="imessage://chahal@elfreds.com">imessage</a>, <a href="https://www.linkedin.com/in/ajch25/">linkedin</a>, <a href="https://x.com/ghanshyaama">x.com</a>),<br>
+        Akash (<a href="mailto:akash@plekko.com">email</a>, <a href="https://www.linkedin.com/in/akash-mungul-3b27a2136/">linkedin</a>),<br>
+        and you? (join us!)</p>
+        <p><span class="highlight">Projects:</span> building a platform to monetize digital content, running a hyperlocal grocery delivery service, developing AI-driven stock analysis tools, analyzing in-depth the Indian cybersecurity market, forecasting global real estate trends in key markets, implementing customer engagement systems for a smart energy company, optimizing marketing technology for an elderly care startup, business development for a media agency, and more.</p>
+    </div>
+    <script>
+        gsap.to(".stars", {duration: 10, opacity: 0.3, repeat: -1, yoyo: true, ease: "power1.inOut"});
+        
+        gsap.to(".orbit1", {duration: 120, rotation: 360, repeat: -1, ease: "none"});
+        gsap.to(".orbit2", {duration: 180, rotation: -360, repeat: -1, ease: "none"});
+        gsap.to(".orbit3", {duration: 150, rotation: 360, repeat: -1, ease: "none"});
+        
+        const shapes = gsap.utils.toArray(".shape");
+        shapes.forEach((shape, i) => {
+            gsap.set(shape, {
+                xPercent: -50,
+                yPercent: -50,
+                x: gsap.utils.random(0, window.innerWidth),
+                y: gsap.utils.random(0, window.innerHeight)
+            });
+            
+            gsap.to(shape, {
+                duration: gsap.utils.random(60, 120),
+                rotation: gsap.utils.random(0, 360),
+                x: gsap.utils.random(0, window.innerWidth),
+                y: gsap.utils.random(0, window.innerHeight),
+                repeat: -1,
+                yoyo: true,
+                ease: "none"
+            });
+        });
+    </script>
 </body>
-
 </html>
