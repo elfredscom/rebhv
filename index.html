@@ -3,17 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rebhv</title>
+    <title>rebhv</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <link rel="icon" type="image/png" href="/rebhv.png">
-    <link rel="apple-touch-icon" href="/rebhv.png">  
+    <link rel="apple-touch-icon" href="/rebhv.png">
     <style>
         body {
             font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            font-size: 1.5em;
+            font-size: 1.1em;
             line-height: 1.5;
-            background: #f0f0f0;
             color: #111;
             margin: 0;
             padding: 0;
@@ -26,189 +24,95 @@
         .container {
             padding: 2em;
             position: relative;
-            z-index: 2;
         }
-        .space-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
-            z-index: 1;
+        p {
+            margin-bottom: 1.2rem;
         }
-        .space-background::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            right: -50%;
-            bottom: -50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
-            filter: url(#diffusion);
+        .motto-container {
+            text-align: right;
+            margin-bottom: 3rem;
+            margin-right: -0.5em;
         }
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(1px 1px at 20px 30px, rgba(44,62,80,0.3), rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 40px 70px, rgba(44,62,80,0.2), rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 50px 160px, rgba(44,62,80,0.3), rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 90px 40px, rgba(44,62,80,0.2), rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 130px 80px, rgba(44,62,80,0.3), rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 160px 120px, rgba(44,62,80,0.2), rgba(0,0,0,0));
-            background-repeat: repeat;
-            background-size: 200px 200px;
+        .motto {
+            font-size: 9em;
+            line-height: 1;
+            font-weight: 700;
+            margin-bottom: 0.1rem;
         }
-        .shape {
-            position: absolute;
-            opacity: 0.4;
-            filter: blur(10px);
-            border-radius: 50%;
+        .motto-latin {
+            font-size: 5em;
+            font-weight: 700;
         }
-        .shape1 { background-color: rgba(255, 107, 107, 0.6); }
-        .shape2 { background-color: rgba(78, 205, 196, 0.6); }
-        .shape3 { background-color: rgba(254, 202, 87, 0.6); }
-        .shape4 { background-color: rgba(149, 82, 234, 0.6); }
-        .shape5 { background-color: rgba(52, 231, 228, 0.6); }
-        .shape6 { background-color: rgba(255, 159, 26, 0.6); }
-        .shape7 { background-color: rgba(29, 209, 161, 0.6); }
-        .shape8 { background-color: rgba(243, 104, 224, 0.6); }
-        .shape9 { background-color: rgba(46, 134, 222, 0.6); }
-        .signal {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            opacity: 0;
-            filter: blur(10px);
-        }
-        h1, p {
+        .section {
             margin-bottom: 1.5rem;
         }
-        h1 {
-            letter-spacing: 1px;
+        h2 {
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 0.5rem;
+            text-transform: lowercase;
         }
-        .highlight {
+        .content {
+            margin-left: 0.5rem;
+        }
+        .join-section > div {
+            margin-bottom: 1rem;
+        }
+        .join-section h3 {
+            font-size: 1em;
             font-weight: 600;
+            margin-bottom: 0.3rem;
+            display: inline;
         }
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-        a:hover {
-            opacity: 0.7;
+        .join-section p {
+            display: inline;
+            margin-left: 0.5rem;
         }
     </style>
 </head>
 <body>
-    <svg width="0" height="0">
-        <filter id="diffusion">
-            <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" result="noise" />
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" result="displacement" />
-            <feGaussianBlur in="displacement" stdDeviation="5" result="blur" />
-            <feBlend in="SourceGraphic" in2="blur" mode="overlay" result="blend" />
-        </filter>
-    </svg>
-    <div class="space-background">
-        <div class="stars"></div>
-        <div class="shape shape1"></div>
-        <div class="shape shape2"></div>
-        <div class="shape shape3"></div>
-        <div class="shape shape4"></div>
-        <div class="shape shape5"></div>
-        <div class="shape shape6"></div>
-        <div class="shape shape7"></div>
-        <div class="shape shape8"></div>
-        <div class="shape shape9"></div>
-        <div class="signal"></div>
-        <div class="signal"></div>
-        <div class="signal"></div>
-        <div class="signal"></div>
-        <div class="signal"></div>
-        <div class="signal"></div>
-    </div>
     <div class="container">
-        <p><b>Rebhv</b></p>
-        <p>In the depths of existence lie spellbinding enigmas. In pursuit of knowledge, our indomitable spirit.</p>
-        <p><span class="highlight">Chapters<!--we study-->:</span> markets, technology, systems, data, enterprise, society, policy, propaganda, art, and language.</p>
-        <p><span class="highlight">Functions<!--we advise on-->:</span> strategy, operations, and marketing.</p>
-        <p><span class="highlight">People:</span><br>
-        Ajay (<a href="mailto:chahal@elfreds.com">email</a>, <a href="imessage://chahal@elfreds.com">imessage</a>, <a href="https://www.linkedin.com/in/ajch25/">linkedin</a>, <a href="https://x.com/ghanshyaama">x.com</a>),<br>
-        Akash (<a href="mailto:akm@elfreds.com">email</a>, <a href="https://www.linkedin.com/in/akash-mungul-3b27a2136/">linkedin</a>),<br>
-        and you? (join us!)</p>
-        <p><span class="highlight">Projects:</span> building a platform to monetize digital content, running a hyperlocal grocery delivery service, developing AI-driven stock analysis tools, analyzing in-depth the Indian cybersecurity market, forecasting global real estate trends in key markets, implementing customer engagement systems for a smart energy company, optimizing marketing technology for an elderly care startup, business development for ad agency, and more.</p>
+        <div class="motto-container">
+            <div class="motto">उद्यमो भैरवः</div>
+            <div class="motto-latin">Udyamo Bhairavaḥ</div>
+        </div>
+
+        <div class="section">
+            <h2>why?</h2>
+            <div class="content">
+                <p>To build common goods, deep tech, economic incentives, organizational models, information excesses, pareto efficiencies, religion, social paradigms, and order.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>how?</h2>
+            <div class="content">
+                <p>We'll reverse engineer existing and deliberate new knowledge, upskill and poach talent, commercialize and publicize knowledge, raise awareness and money, and everything else. Basically, we'll do the needful.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>what?</h2>
+            <div class="content">
+                <p>At its core, rebhv is about fostering collaboration, building institutes, and enabling individuals to realize the highest human potential. Just as actors and athletes have managers to guide their careers, everyone deserves that kind of support. Whether you're an industry veteran or just starting out, rebhv aims to connect with others and build knowledge collectively and publicly.</p>
+                <p>Our Community encompasses a wide range of fields and disciplines, bringing together people from all walks of life. Whether you're interested in technology, business, society, policy, propaganda, art, language, vocation, or anything else, there's a place for you here. Our diverse community fosters deeper connections and more meaningful collaborations.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>why join rebhv?</h2>
+            <div class="content join-section">
+                <div>
+                    <h3>Individuals:</h3>
+                    <p>Expand your impact, grow your potential, and mentor or be mentored — all while discovering new opportunities.</p>
+                </div>
+                <div>
+                    <h3>Organisations:</h3>
+                    <p>Tap into a diverse pool of talent for your projects, sponsor initiatives, and benefit from the collective's shared knowledge and public engagement.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <script>
-        gsap.to(".stars", {duration: 10, opacity: 0.3, repeat: -1, yoyo: true, ease: "power1.inOut"});
-
-        const shapes = gsap.utils.toArray(".shape");
-        shapes.forEach((shape, i) => {
-            gsap.set(shape, {
-                xPercent: -50,
-                yPercent: -50,
-                width: gsap.utils.random(80, 150),
-                height: gsap.utils.random(80, 150),
-                x: gsap.utils.random(0, window.innerWidth),
-                y: gsap.utils.random(0, window.innerHeight)
-            });
-
-            gsap.to(shape, {
-                duration: gsap.utils.random(150, 210),
-                rotation: gsap.utils.random(0, 360),
-                x: gsap.utils.random(0, window.innerWidth),
-                y: gsap.utils.random(0, window.innerHeight),
-                repeat: -1,
-                yoyo: true,
-                ease: "none"
-            });
-        });
-
-        const signals = gsap.utils.toArray(".signal");
-        function animateSignal(signal) {
-            const startShape = shapes[gsap.utils.random(0, shapes.length - 1, 1)];
-            const endShape = shapes[gsap.utils.random(0, shapes.length - 1, 1)];
-            const startColor = window.getComputedStyle(startShape).backgroundColor;
-            const endColor = window.getComputedStyle(endShape).backgroundColor;
-
-            gsap.set(signal, {
-                x: startShape._gsap.x,
-                y: startShape._gsap.y,
-                backgroundColor: startColor,
-                opacity: 0,
-                scale: 0.5
-            });
-
-            const timeline = gsap.timeline({onComplete: () => animateSignal(signal)});
-
-            timeline.to(signal, {
-                duration: 0.8,
-                opacity: 0.4,
-                scale: 1,
-                ease: "power1.out"
-            });
-
-            timeline.to(signal, {
-                duration: gsap.utils.random(3, 5),
-                x: endShape._gsap.x,
-                y: endShape._gsap.y,
-                backgroundColor: endColor,
-                ease: "none"
-            });
-
-            timeline.to(signal, {
-                duration: 0.8,
-                opacity: 0,
-                scale: 0.5,
-                ease: "power1.in"
-            });
-        }
-
-        signals.forEach(animateSignal);
-    </script>
 </body>
 </html>
